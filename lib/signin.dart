@@ -36,6 +36,7 @@ class _RegisterState extends State<Register> {
       );
 
       var jsonresponse = jsonDecode(response.body);
+      print("response =" + jsonresponse.toString());
 
       if(jsonresponse["email"] == _email.text){
         print("user Created Sucessfully");

@@ -57,8 +57,10 @@ class _LoginState extends State<Login> {
 
       if(jsonresponse["status"]){
         print("user Logged Sucessfully");
+
         var mytoken = jsonresponse["token"];
         saveToken(mytoken);
+
         Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Dashboard(token: mytoken))

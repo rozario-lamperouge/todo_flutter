@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tut1/dashboard.dart';
 import 'package:tut1/login.dart';
+import 'package:tut1/signin.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: (JwtDecoder.isExpired(token) == true)
-          ? const Login()
+      debugShowCheckedModeBanner: false,
+      home: (token == null) ? Register() : (JwtDecoder.isExpired(token) == true)
+          ? const Register()
           : Dashboard(token: token),
     );
   }
